@@ -1,0 +1,166 @@
+// header size
+
+$md-header-height: 60px;
+$md-nav-height: 40px;
+$xl-header-height: 80px;
+$xl-nav-height: 70px;
+
+/* --------------------------------
+
+1. Auto-Hiding Navigation - Simple
+
+-------------------------------- */
+
+.cd-auto-hide-header {
+  height: $md-header-height;
+  @media (min-width: 768px) {
+    height: $xl-header-height;
+  }
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	/* Force Hardware Acceleration */
+	transform: translateZ(0);
+	will-change: transform;
+	transition: transform .5s;
+	&.is-hidden {
+		transform: translateY(-100%);
+	}
+}
+
+/* --------------------------------
+
+2. Auto-Hiding Navigation - with Sub Nav
+
+-------------------------------- */
+
+.cd-secondary-nav {
+	height: $md-nav-height;
+  @media (min-width: 768px) {
+	  height: $xl-nav-height;
+  }
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	/* Force Hardware Acceleration */
+	transform: translateZ(0);
+	will-change: transform;
+	transition: transform .5s;
+	&.fixed {
+		position: fixed;
+		top: $md-header-height;
+    @media (min-width: 768px) {
+      top: $xl-header-height;
+    }
+	}
+	&.slide-up {
+		transform: translateY(-$md-header-height);
+    @media (min-width: 768px) {
+		  transform: translateY(-$xl-header-height);
+    }
+	}
+  .cd-auto-hide-header & {
+    top: 100%;
+		position: fixed;
+  }
+}
+
+
+/* --------------------------------
+
+Main content
+
+-------------------------------- */
+
+.cd-main-content {
+	padding-top: $md-header-height;
+  @media (min-width: 768px) {
+	  padding-top: $xl-header-height;
+  }
+	&.sub-nav {
+		padding-top: $md-header-height + $md-nav-height;
+    @media (min-width: 768px) {
+		  padding-top: $xl-header-height + $xl-nav-height;
+    }
+	}
+	&.sub-nav-hero {
+		padding-top: 0;
+		&.secondary-nav-fixed {
+			margin-top: $md-nav-height;
+      @media (min-width: 768px) {
+        margin-top: $xl-nav-height;
+      }
+		}
+	}
+}
+
+/*
+ * adjust the positioning of in-page links
+ * http://nicolasgallagher.com/jump-links-and-viewport-positioning/
+ */
+.cd-main-content.sub-nav :target::before,
+.cd-main-content.sub-nav-hero :target::before {
+	display: block;
+  content: "";
+  visibility: hidden;
+  margin-top: -$md-nav-height;
+  height: $md-nav-height;
+  @media (min-width: 768px) {
+    margin-top: -$xl-nav-height;
+    height: $xl-nav-height;
+  }
+}
+
+/* --------------------------------
+
+Intro Section
+
+-------------------------------- */
+
+.cd-hero {
+	min-height: 300px;
+	margin-top: $md-header-height;
+  @media (min-width: 768px) {
+	  margin-top: $xl-header-height;
+  }
+}
+
+/* --------------------------------
+
+Custom style
+
+-------------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+.cd-auto-hide-header {
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+.cd-hero {
+  background: gray;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: calc(100vh - #{$md-header-height + $md-nav-height});
+    @media (min-width: 768px) {
+      height: calc(100vh - #{$xl-header-height + $xl-nav-height});
+    }
+  }
+}
+.cd-secondary-nav {
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.cd-main-content {
+  &__inner {
+    padding: 50px 0;
+  }
+}
+
