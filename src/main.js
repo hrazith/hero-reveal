@@ -39,27 +39,27 @@ function init() {
 		autoAlpha: 1,
 		ease: easee
 	}, .2, .2);
-    tx.to('.notifications', duration, {
-        css: {
-            height: "40px",
+	tx.to('.notifications', duration, {
+		css: {
+			height: "40px",
 			top: "0",
 			backgroundPosition: "18px center"
-        },
-        ease: easee
-    }, .2, .2);
-    tx.to('.notifications h3', duration, {
-        css: {
-            display: "inline"
-        },
-        ease: easee
-    }, .2, .2);
-    tx.to('.notifications p', duration, {
-        css: {
-            display: "inline",
-            paddingLeft: "4px"
-        },
-        ease: easee
-    }, .2, .2);
+		},
+		ease: easee
+	}, .2, .2);
+	tx.to('.notifications h3', duration, {
+		css: {
+			display: "inline"
+		},
+		ease: easee
+	}, .2, .2);
+	tx.to('.notifications p', duration, {
+		css: {
+			display: "inline",
+			paddingLeft: "4px"
+		},
+		ease: easee
+	}, .2, .2);
 
 
 	$.fn.appear = function() {
@@ -88,21 +88,21 @@ function init() {
 	$('.logo').click(function(event) {
 		tx.reverse();
 
-        $('.search-results').addClass('hidden');
-        $('.tab.hd').addClass('active');
-        $('.helpdesk-panel').removeClass('hidden');
-        $('.contactHD').css('background-color', '#fff');
-        $('.tablinks').removeClass('hidden');
-        $('.grid').removeClass('hidden');
+		$('.search-results').addClass('hidden');
+		$('.tab.hd').addClass('active');
+		$('.helpdesk-panel').removeClass('hidden');
+		$('.contactHD').css('background-color', '#fff');
+		$('.tablinks').removeClass('hidden');
+		$('.grid').removeClass('hidden');
 
 	});
 
 
 	$('.alert, .ticket').funcToggle('click', function() {
 		$(this).addClass('selected');
-        $('.confirmation, .helpdesk-panel').addClass('hidden');
-        $('.tkt-summary').removeClass('hidden');
-        $('.tab.active').removeClass('active');
+		$('.confirmation, .helpdesk-panel').addClass('hidden');
+		$('.tkt-summary').removeClass('hidden');
+		$('.tab.active').removeClass('active');
 	}, function() {
 		$(this).removeClass('selected');
 		$(this).children('.ex-only').addClass('hidden');
@@ -184,44 +184,44 @@ function init() {
 		$('.contactHD .primary').addClass('disabled');
 	});
 
-    $('#other').click(function(event) {
-        $('.whichnum ul').addClass('hidden');
-    });
+	$('#other').click(function(event) {
+		$('.whichnum ul').addClass('hidden');
+	});
 
 	$('.contactHD .primary').click(function(event) {
 		$('.tkt-submitted').removeClass('hidden');
 	});
 
-    $('.resume-chat').click(function(event) {
-        event.stopPropagation();
-        $('.confirmation, .helpdesk-panel').addClass('hidden');
-        $('.confirmation.resumechat').removeClass('hidden');
-    });
+	$('.resume-chat').click(function(event) {
+		event.stopPropagation();
+		$('.confirmation, .helpdesk-panel').addClass('hidden');
+		$('.confirmation.resumechat').removeClass('hidden');
+	});
 
-    $('.resume-call').click(function(event) {
-        event.stopPropagation();
-        $('.confirmation, .helpdesk-panel').addClass('hidden');
-        $('.confirmation.resumecall').removeClass('hidden');
-    });
+	$('.resume-call').click(function(event) {
+		event.stopPropagation();
+		$('.confirmation, .helpdesk-panel').addClass('hidden');
+		$('.confirmation.resumecall').removeClass('hidden');
+	});
 
-    $('.escalate').click(function(event) {
-        event.stopPropagation();
-        $('.confirmation, .helpdesk-panel').addClass('hidden');
+	$('.escalate').click(function(event) {
+		event.stopPropagation();
+		$('.confirmation, .helpdesk-panel').addClass('hidden');
 		$('.confirmation.tkt-escalate').removeClass('hidden');
-    });
+	});
 
-    $('.cancel').click(function(event) {
-        event.stopPropagation();
-        $('.confirmation, .helpdesk-panel').addClass('hidden');
-        $('.confirmation.tkt-cancel').removeClass('hidden');
-    });
+	$('.cancel').click(function(event) {
+		event.stopPropagation();
+		$('.confirmation, .helpdesk-panel').addClass('hidden');
+		$('.confirmation.tkt-cancel').removeClass('hidden');
+	});
 
-    $('.dont').click(function(event) {
-        $('.confirmation').addClass('hidden');
-        $('.helpdesk-panel').removeClass('hidden');
-        $('.tab.hd').addClass('active');
+	$('.dont').click(function(event) {
+		$('.confirmation').addClass('hidden');
+		$('.helpdesk-panel').removeClass('hidden');
+		$('.tab.hd').addClass('active');
 
-    });
+	});
 
 
 
@@ -252,18 +252,18 @@ function init() {
 
 
 
-    $('#search').focus(function(event) {
-    	console.log ("here!");
-        $('.tab.active').removeClass('active');
-        $('.helpdesk-panel').addClass('hidden');
-        $('.contactHD').css('background-color', '#f1f1f1');
-        $('.tablinks').addClass('hidden');
-        $('.grid').addClass('hidden');
+	$('#search').focus(function(event) {
+		console.log ("here!");
+		$('.tab.active').removeClass('active');
+		$('.helpdesk-panel').addClass('hidden');
+		$('.contactHD').css('background-color', '#f1f1f1');
+		$('.tablinks').addClass('hidden');
+		$('.grid').addClass('hidden');
 
-        $('.search-results').removeClass('hidden');
+		$('.search-results').removeClass('hidden');
 
 
-    });
+	});
 
 
 	// SLANT
