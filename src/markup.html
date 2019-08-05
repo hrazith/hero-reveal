@@ -1,470 +1,462 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Lumos :: Help Desk Reimagined</title>
-        <link rel="stylesheet" href="css/normalize.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet">
-        <link rel="stylesheet" href="css/main.css">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lumos :: Help Desk Reimagined</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
 
-    </head>
-    <body>
-        <div class="container" id="app">
-            <div class="settings-box hidden">
-                <div class="tabs-container">
-                    <div class="avatar test">
-                        <div class="availability busy"></div>
-                        <img src="img/user-circle.svg" width="70">
-                    </div> 
-                    <div class="designation">
-                        {{name}}, {{title}}
+</head>
+<body>
+<div class="container" id="app">
+    <div class="settings-box hidden">
+        <div class="tabs-container">
+            <div class="avatar test">
+                <div class="availability busy"></div>
+                <img src="img/user-circle.svg" width="70">
+            </div>
+            <div class="designation">
+                {{name}}, {{title}}
+            </div>
+
+            <ul class="tabs">
+                <li>
+                    <a>Alert History</a>
+                </li>
+                <li>
+                    <a>Ticket History</a>
+                </li>
+                <li>
+                    <a>Outlook</a>
+                </li>
+                <li>
+                    <a class="active">Settings</a>
+                </li>
+                <ul>
+        </div>
+        <div class="controls-container">
+            <div class="alert-history">
+                <div class="currently">
+                    <span class="">3 Open</span>
+                    <span class="">16 Closed</span>
+                </div>
+                <table>
+                    <tr>
+                        <th>Ticket #</th>
+                        <th>Status</th>
+                        <th>Description</th>
+                        <th>Created</th>
+                        <th>Updated</th>
+                        <th>Type</th>
+                    </tr>
+                    <tr>
+                        <td>SR243564</td>
+                        <td>In progress</td>
+                        <td>NDS too slow</td>
+                        <td>Created</td>
+                        <td>Updated</td>
+                        <td>SRS</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="lumos-settings hidden">
+                <h2> Lumos Settings & Preferences</h2>
+                <div class="settings-cluster">
+                    <h3>Preferred Mode of Contact</h3>
+                    <p>By default, how would you like Help Desk to contact you.</p>
+                    <div class="contact-options">
+                        <div class="option">
+                            <span class="type">Call</span>
+                        </div>
+                        <div class="option">
+                            <span class="type">Email</span>
+                        </div>
+                        <div class="option chosen">
+                            <span class="type">Chat</span>
+                        </div>
                     </div>
-                    
-                    <ul class="tabs">
-                        <li>
-                            <a>Alert History</a>
-                        </li>
-                        <li>
-                            <a>Ticket History</a>
-                        </li>
-                        <li>
-                            <a>Outlook</a>
-                        </li>
-                        <li>
-                            <a class="active">Settings</a>
-                        </li>
+                </div>
+                <div class="settings-cluster">
+                    <h3>Preferred Support Language</h3>
+                    <div class="contact-options">
+                        <div class="option chosen">
+                            <span class="type">English</span>
+                        </div>
+                        <div class="option">
+                            <span class="type">汉语</span>
+                        </div>
+                        <div class="option">
+                            <span class="type">日本語</span>
+                        </div>
+                        <div class="option">
+                            <span class="type">Other</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-cluster">
+                    <h3>Help Desk Tickets</h3>
+                    <p>By default, show</p>
+                    <div class="contact-options">
+                        <div class="option chosen">
+                            <span class="type">Compact view</span>
+                        </div>
+                        <div class="option">
+                            <span class="type">Expanded view</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search-box">
+        <div class="header">
+            <div class="logo invisible">
+                <img src="img/lumos-logo.svg">
+            </div>
+
+            <div class="nav">
+                <ul>
+                    <li id="msg"><img src="img/feedback.svg"></li>
+                    <li id="alrt"><img src="img/alerts.svg"></li>
+                    <li id="tkt"><img src="img/tickets.svg"></li>
+                    <li id="tmd"><img src="img/tmd-icon.svg"></li>
+                    <li id="usr"><img src="img/user.svg"></li>
+                    <li id="min"><img src="img/minimise.svg"></li>
+                    <li id="x"><img src="img/close.svg"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="intro">
+            <img src="img/lumos-logomark.svg">
+            <p class="tagline">Where will Lumos take you?</p>
+            <p class="welcome"><span class="name">{{ name  }}</span>, welcome to Lumos, your Help Desk application!  <br/>Search to find answers to your queries.
+                <br/> E.g. <span class="example">Outlook has been slow</span></p>
+        </div>
+        <div class="input">
+            <input type="text" placeholder="Search" id="search">
+        </div>
+    </div>
+
+
+    <div class="content-box">
+
+        <div class="launchers">
+            <div class="launcher">
+                <div class="launchercount">0{{ alertCount }}</div>
+                <div class="launchercountlabel">Alerts & <br/>Notifications </div>
+            </div>
+            <div class="launcher opentix">
+                <div class="launchercount">22</div>
+                <div class="launchercountlabel">Open <br/>Tickets </div>
+            </div>
+            <div class="launcher chd">
+                <div class="launchercountlabel">Contact <br/>Help Desk </div>
+            </div>
+            <div class="launchtmd">
+                Order technology items <br/>or application requests
+            </div>
+            <div class="row-end">&nbsp;</div>
+        </div>
+
+
+        <div class="notifications hidden">
+            <div class="counter">1/3</div>
+            <h3> Notification: Lumos Friends & Family Testing - Known issue with DA Help command.</h3>
+            <p>A known issue affecting Friends and family users is preventin g Lumos ... </p>
+        </div>
+
+
+        <div class="content-container">
+            <div class="search-results hidden">
+                <div class="excerpt selected">
+                    <h3>How to: Create Quick Steps in Outlook 2010 </h3>
+                    <p>Your app will not be avaliable for 15mins. Nullam fermentum ultricies mauris.</p>
+                </div>
+
+                <div class="detail">
+                    <h2>How to: Create Quick Steps in Outlook 2010  </h2>
+                    <h3>Solution</h3>
+                    <p>
+                        If you created personal folders (PSTs) in Microsoft Outlook previously and the PSTs have not yet been locked down, you can still save files/folders to them to reduce the size of your mailbox.  Follow the best practices listed below to prevent Outlook perfermance issues.
+                    </p>
+                    <h3>Best Practices for PSTs</h3>
+                    <p>
                     <ul>
-                </div>
-                <div class="controls-container">
-                    <div class="alert-history">
-                        <div class="currently">
-                            <span class="">3 Open</span>
-                            <span class="">16 Closed</span>
-                        </div>
-                        <table>
-                            <tr>
-                                <th>Ticket #</th>
-                                <th>Status</th>
-                                <th>Description</th>
-                                <th>Created</th>
-                                <th>Updated</th>
-                                <th>Type</th>
-                            </tr>
-                            <tr>
-                                <td>SR243564</td>
-                                <td>In progress</td>
-                                <td>NDS too slow</td>
-                                <td>Created</td>    
-                                <td>Updated</td>
-                                <td>SRS</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="lumos-settings hidden">
-                        <h2> Lumos Settings & Preferences</h2>
-                        <div class="settings-cluster">
-                            <h3>Preferred Mode of Contact</h3>
-                            <p>By default, how would you like Help Desk to contact you.</p>
-                            <div class="contact-options">
-                                <div class="option">
-                                    <span class="type">Call</span>
-                                </div>
-                                <div class="option">
-                                    <span class="type">Email</span>
-                                </div>
-                                <div class="option chosen">
-                                    <span class="type">Chat</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="settings-cluster">
-                            <h3>Preferred Support Language</h3>
-                            <div class="contact-options">
-                                <div class="option chosen">
-                                    <span class="type">English</span>
-                                </div>
-                                <div class="option">
-                                    <span class="type">汉语</span>
-                                </div>
-                                <div class="option">
-                                    <span class="type">日本語</span>
-                                </div>
-                                <div class="option">
-                                    <span class="type">Other</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="settings-cluster">
-                            <h3>Help Desk Tickets</h3>
-                            <p>By default, show</p>
-                            <div class="contact-options">
-                                <div class="option chosen">
-                                    <span class="type">Compact view</span>
-                                </div>
-                                <div class="option">
-                                    <span class="type">Expanded view</span>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="search-box">
-                <div class="header">
-                    <div class="logo invisible">
-                        <img src="img/lumos-logo.svg">
-                    </div>
+                        <li>Each PST should be no larger than 4GB</li>
+                        <li>No more than 3 PSTs should be mapped to your mailbox at any given time</li>
+                        <li>A large personal folder can become corrupted and result in data loss. While the size at which a personal folder may corrupt is not definitive, as a general guideline keep the PST (including subfolders) to 4GB. If you already have a larger PST in place and are not experiencing any problems, just start using a new one</li>
+                        <li>Use PSTs to store data that is not frequently accessed and used day to day.  Leave frequently accessed content in your e-mail folders</li>
+                    </ul>
+                    </p>
+                    <p>
+                        <b>Unmap/Disconnect a PST Folder</b> Right-click against the top-level PST in the Outlook navigation pane and select Close "Personal Folder"
+                    </p>
 
-                    <div class="nav">
-                        <ul>
-                            <li id="msg"><img src="img/feedback.svg"></li>
-                            <li id="alrt"><img src="img/alerts.svg"></li>
-                            <li id="tkt"><img src="img/tickets.svg"></li>
-                            <li id="tmd"><img src="img/tmd-icon.svg"></li>
-                            <li id="usr"><img src="img/user.svg"></li>
-                            <li id="min"><img src="img/minimise.svg"></li>
-                            <li id="x"><img src="img/close.svg"></li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="intro">
-                    <img src="img/lumos-logomark.svg">
-                    <p class="tagline">Where will Lumos take you?</p>
-                    <p class="welcome"><span class="name">{{ name  }}</span>, welcome to Lumos, your Help Desk application!  <br/>Search to find answers to your queries.
-                    <br/> E.g. <span class="example">Outlook has been slow</span></p>
-                </div>
-                <div class="input">
-                    <input type="text" placeholder="Search" id="search">
-                </div>
-            </div>
-
-
-            <div class="content-box">
-            
-                <div class="launchers">
-                    <div class="launcher">
-                        <div class="launchercount">0{{ alertCount }}</div>
-                        <div class="launchercountlabel">Alerts & <br/>Notifications </div>
-                    </div>
-                    <div class="launcher opentix">
-                        <div class="launchercount">22</div>
-                        <div class="launchercountlabel">Open <br/>Tickets </div>
-                    </div>
-                    <div class="launcher chd">
-                        <div class="launchercountlabel">Contact <br/>Help Desk </div>
-                    </div>
-                    <div class="launchtmd">
-                        Order technology items <br/>or application requests 
-                    </div>
-                    <div class="row-end">&nbsp;</div>
-                </div>
-
-
-                <div class="notifications hidden">
-                    <div class="counter">1/3</div>
-                    <h3> Notification: Lumos Friends & Family Testing - Known issue with DA Help command.</h3>
-                    <p>A known issue affecting Friends and family users is preventin g Lumos ... </p>
-                </div>
-
-
-                <div class="content-container">
-                    <div class="search-results hidden">
-                        <div class="excerpt selected">
-                            <h3>How to: Create Quick Steps in Outlook 2010 </h3>
-                            <p>Your app will not be avaliable for 15mins. Nullam fermentum ultricies mauris.</p>
-                        </div>
-
-                        <div class="detail">
-                            <h2>How to: Create Quick Steps in Outlook 2010  </h2>
-                            <h3>Solution</h3>
-                            <p>
-                                If you created personal folders (PSTs) in Microsoft Outlook previously and the PSTs have not yet been locked down, you can still save files/folders to them to reduce the size of your mailbox.  Follow the best practices listed below to prevent Outlook perfermance issues.
-                            </p>
-                            <h3>Best Practices for PSTs</h3>
-                            <p>
-                                <ul>
-                                    <li>Each PST should be no larger than 4GB</li>
-                                    <li>No more than 3 PSTs should be mapped to your mailbox at any given time</li>
-                                    <li>A large personal folder can become corrupted and result in data loss. While the size at which a personal folder may corrupt is not definitive, as a general guideline keep the PST (including subfolders) to 4GB. If you already have a larger PST in place and are not experiencing any problems, just start using a new one</li>
-                                    <li>Use PSTs to store data that is not frequently accessed and used day to day.  Leave frequently accessed content in your e-mail folders</li>
-                                </ul>
-                            </p>
-                            <p>
-                                <b>Unmap/Disconnect a PST Folder</b> Right-click against the top-level PST in the Outlook navigation pane and select Close "Personal Folder"
-                            </p>
-
-                            <h3>Re-map/Connect a PST Folder</h3>
-                            <p>
-                                <ul>
-                                    <li>In Outlook 2010, select File > Info, then Account Settings > Account Settings</li>
-                                    <li>In the Account Settings dialog box, select the Data Files tab and then click the Add button</li>
-                                    <li>In the Create or Open Outlook Data File dialog box, make sure you are in the Default folder as
-                                        shown here before proceeding to step 4</li>
-                                    <li>In the Create or Open Outlook Data File dialog box, make sure you are in the Default folder as
-                                        shown here before proceeding to step 4
-                                        Americas \\firmwide.corp.gs.com\core\pstny\<kerberos>\default
-                                            EMEA \\firmwide.corp.gs.com\core\psteu\<kerberos>\default
-                                                Hong Kong \\firmwide.corp.gs.com\core\psthk\<kerberos>\default
-                                                    Tokyo \\firmwide.corp.gs.com\core\psttk\<kerberos>\default
-                                                        IBD \\ibd.gs.com\pst\pst_kerberosID If you are not in the above Default folder, type its path into the File name field and click OK
-                                                        Select the PST folder you wish to re-map, then click OK and Close</li>
-                                </ul>
-
-
-
-                                In the Create or Open Outlook Data File dialog box, make sure you are in the Default folder as
-                                shown here before proceeding to step 4
-                                Americas \\firmwide.corp.gs.com\core\pstny\<kerberos>\default
+                    <h3>Re-map/Connect a PST Folder</h3>
+                    <p>
+                    <ul>
+                        <li>In Outlook 2010, select File > Info, then Account Settings > Account Settings</li>
+                        <li>In the Account Settings dialog box, select the Data Files tab and then click the Add button</li>
+                        <li>In the Create or Open Outlook Data File dialog box, make sure you are in the Default folder as
+                            shown here before proceeding to step 4</li>
+                        <li>In the Create or Open Outlook Data File dialog box, make sure you are in the Default folder as
+                            shown here before proceeding to step 4
+                            Americas \\firmwide.corp.gs.com\core\pstny\<kerberos>\default
                                 EMEA \\firmwide.corp.gs.com\core\psteu\<kerberos>\default
                                     Hong Kong \\firmwide.corp.gs.com\core\psthk\<kerberos>\default
                                         Tokyo \\firmwide.corp.gs.com\core\psttk\<kerberos>\default
                                             IBD \\ibd.gs.com\pst\pst_kerberosID If you are not in the above Default folder, type its path into the File name field and click OK
-                                            Select the PST folder you wish to re-map, then click OK and Close
-                            </p>
-                        </div>
+                                            Select the PST folder you wish to re-map, then click OK and Close</li>
+                    </ul>
 
-                        <div class="excerpt">
-                            <h3>Steps to configure Outlook</h3>
-                            <p>Curabitur posuere orci Outlook, pretium augue vel, maximus metus. Nullam fermentum ultricies mauris.</p>
-                        </div>
-                        <div class="excerpt">
-                            <h3>Symphony & Outlook</h3>
-                            <p>Pellentesque rhoncus, lectus sed faucibus ullamcorper, nunc diam tincidunt justo, sed blandit mi massa in arcu.</p>
-                        </div>
-                        <div class="excerpt">
-                            <h3>Symphony & Outlook</h3>
-                            <p>Pellentesque rhoncus, lectus sed faucibus ullamcorper, nunc diam tincidunt justo, sed blandit mi massa in arcu.</p>
-                        </div>
-                        <div>
-                            <p>Pellentesque rhoncus, lectus sed faucibus ullamcorper, nunc diam tincidunt justo, sed blandit mi massa in arcu.</p>
-                        </div>
-                        <div><p>Empty</p></div> <div><p>Empty</p></div>
-                    </div>
-                    <div class="tabbar">
-                        <ul class="tablinks">
-                            <li><a class="active">Open Tickets</a></li>
-                            <li><a>Ticket History</a> </li>
-                            <li><a>Chat Tickets</a></li>
+
+
+                    In the Create or Open Outlook Data File dialog box, make sure you are in the Default folder as
+                    shown here before proceeding to step 4
+                    Americas \\firmwide.corp.gs.com\core\pstny\<kerberos>\default
+                    EMEA \\firmwide.corp.gs.com\core\psteu\<kerberos>\default
+                        Hong Kong \\firmwide.corp.gs.com\core\psthk\<kerberos>\default
+                            Tokyo \\firmwide.corp.gs.com\core\psttk\<kerberos>\default
+                                IBD \\ibd.gs.com\pst\pst_kerberosID If you are not in the above Default folder, type its path into the File name field and click OK
+                                Select the PST folder you wish to re-map, then click OK and Close
+                                </p>
+                </div>
+
+                <div class="excerpt">
+                    <h3>Steps to configure Outlook</h3>
+                    <p>Curabitur posuere orci Outlook, pretium augue vel, maximus metus. Nullam fermentum ultricies mauris.</p>
+                </div>
+                <div class="excerpt">
+                    <h3>Symphony & Outlook</h3>
+                    <p>Pellentesque rhoncus, lectus sed faucibus ullamcorper, nunc diam tincidunt justo, sed blandit mi massa in arcu.</p>
+                </div>
+                <div class="excerpt">
+                    <h3>Symphony & Outlook</h3>
+                    <p>Pellentesque rhoncus, lectus sed faucibus ullamcorper, nunc diam tincidunt justo, sed blandit mi massa in arcu.</p>
+                </div>
+                <div>
+                    <p>Pellentesque rhoncus, lectus sed faucibus ullamcorper, nunc diam tincidunt justo, sed blandit mi massa in arcu.</p>
+                </div>
+                <div><p>Empty</p></div> <div><p>Empty</p></div>
+            </div>
+            <div class="tabbar">
+                <ul class="tablinks">
+                    <li><a class="active">Open Tickets</a></li>
+                    <li><a>Ticket History</a> </li>
+                </ul>
+            </div>
+
+
+            <div class="contactHD">
+
+                <div class="tabs">
+                    <div class="tab hd active">&nbsp;</div>
+                    <div class="tab ctkts ">&nbsp;</div>
+                </div>
+
+                // CONFIRMATION SCREENS //
+                <div class="confirmation tkt-submitted hidden dont">
+                    <h3> Help Desk Ticket created successfully!</h3>
+                    <p>Ticket number <a href="#">SR24678</a> <br/> Submitted on behalf of <a href="#"> Jacobs, Sarah </a></p>
+                    <p><span class="indicator">ISSUE:</span><br/>Qui elit ea nostrud sint duis in id quis sed dolore ullamco culpa. Ut in incididunt occaecat pariatur veniam amet veniam et dolor in eiusmod labore est.
+                    </p>
+                    <p> An agent will be calling you at <br/><a>617.452.4355 (Cell)</a> in <a> 25 min</a></p>
+                </div>
+                <div class="confirmation tkt-escalate hidden">
+
+                    <p class="subtle">Ticket number <a href="#">SR24678</a> <br/> Submitted on behalf of <a href="#"> Jacobs, Sarah </a></p>
+
+
+                    <h3>Why do you want to escalate this ticket?</h3>
+                    <select class="dropdown">
+                        <option value="r1">Choose Reason</option>
+                        <option value="saab">Taking too long</option>
+                        <option value="mercedes">Reason 2</option>
+                        <option value="audi">Reason 3</option>
+                    </select>
+                    <textarea placeholder="Reason" rows="3" class="reason"></textarea>
+
+                    <button class="primary"> Escalate ticket </button>
+                    <button class="primary disabled dont"> Don't escalate</button>
+
+
+
+                </div>
+                <div class="confirmation resumecall hidden">
+                    <p class="subtle">Ticket number <a href="#">SR24678</a> <br/> Submitted on behalf of <a href="#"> Jacobs, Sarah </a></p>
+
+                    <h3> What is the best number to call you ?</h3>
+                    <form>
+                        <ul class="">
+                            <li>
+                                <input type="radio" name="callme" id="office" checked> 617.330.8867
+                                <span class="where">Office</span>
+                            </li>
+                            <li>
+                                <input type="radio" name="callme" id="home"> 901.433.1234
+                                <span class="where">Home</span>
+                            </li>
+                            <li> <input type="text" name="callme" placeholder="Enter a number" id="other2"> </li>
                         </ul>
-                    </div>
+                    </form>
+                    <button class="primary">Resume call</button>
+                    <button class="primary disabled dont">Cancel</button>
 
+                </div>
+                <div class="confirmation resumechat hidden">
+                    <h3 class="err">The assigned expert is currently not available to resume your chat.</h3>
+                    <p>Would you like to chat with a different expert? </p>
+                    <button class="primary">Yes</button>
+                    <button class="primary disabled dont">No</button>
 
-                    <div class="contactHD">
+                </div>
+                <div class="confirmation tkt-cancel hidden">
 
-                        <div class="tabs">
-                            <div class="tab hd active">&nbsp;</div>
-                            <div class="tab ctkts ">&nbsp;</div>
-                        </div>
-
-                        // CONFIRMATION SCREENS //
-                        <div class="confirmation tkt-submitted hidden dont">
-                            <h3> Help Desk Ticket created successfully!</h3>
-                            <p>Ticket number <a href="#">SR24678</a> <br/> Submitted on behalf of <a href="#"> Jacobs, Sarah </a></p>
-                            <p><span class="indicator">ISSUE:</span><br/>Qui elit ea nostrud sint duis in id quis sed dolore ullamco culpa. Ut in incididunt occaecat pariatur veniam amet veniam et dolor in eiusmod labore est.
-                            </p>
-                            <p> An agent will be calling you at <br/><a>617.452.4355 (Cell)</a> in <a> 25 min</a></p>
-                        </div>
-                        <div class="confirmation tkt-escalate hidden">
-
-                            <p>Ticket number <a href="#">SR24678</a> <br/> Submitted on behalf of <a href="#"> Jacobs, Sarah </a></p>
-                            <p><span class="indicator">ISSUE:</span><br/>Qui elit ea nostrud sint duis in id quis sed dolore ullamco culpa. Ut in incididunt occaecat pariatur veniam amet veniam et dolor in eiusmod labore est.
-                            </p>
-
-
-                            <h3>Why do you want to escalate this ticket?</h3>
-                            <select class="dropdown">
-                                <option value="r1">Choose Reason</option>
-                                <option value="saab">Taking too long</option>
-                                <option value="mercedes">Reason 2</option>
-                                <option value="audi">Reason 3</option>
-                            </select>
-                            <textarea placeholder="Reason" rows="3" class="reason"></textarea>
-
-                            <button class="primary"> Escalate ticket </button>
-                            <button class="primary disabled dont"> Don't escalate</button>
+                    <p class="subtle">Ticket number <a href="#">SR24678</a> <br/> Submitted on behalf of <a href="#"> Jacobs, Sarah </a></p>
+                    <h3>Why do you wish to cancel this ticket?</h3>
+                    <textarea placeholder="Reason" rows="3" class="reason"></textarea>
+                    <ul>
+                        <li><input type="checkbox" id="fixed"> <label for="fixed">Fixed</label></li>
+                        <li><input type="checkbox" id="norel"> <label for="norel">Not relavant any more</label></li>
+                    </ul>
+                    <button class="primary"> Cancel this ticket </button>
+                    <button class="primary disabled dont"> Don't cancel ticket</button>
 
 
 
-                        </div>
-                        <div class="confirmation resumecall hidden">
-                            <p>Ticket number <a href="#">SR24678</a> <br/> Submitted on behalf of <a href="#"> Jacobs, Sarah </a></p>
-                            <p><span class="indicator">ISSUE:</span><br/>Qui elit ea nostrud sint duis in id quis sed dolore ullamco culpa. Ut in incididunt occaecat pariatur veniam amet veniam et dolor in eiusmod labore est.
-                            </p>
-                            <h3> What is the best number to call you ?</h3>
-                            <form>
-                                <ul>
-                                    <li>
-                                        <input type="radio" name="callme" id="office" checked> 617.330.8867
-                                        <span class="where">Office</span>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="callme" id="home"> 901.433.1234
-                                        <span class="where">Home</span>
-                                    </li>
-                                    <li> <input type="text" name="callme" placeholder="Enter a number" id="other2"> </li>
-                                </ul>
-                            </form>
-                            <button class="primary">Resume call</button>
-                            <button class="primary disabled dont">Cancel</button>
+                </div>
+                <div class="confirmation tkt-summary hidden">
 
-                        </div>
-                        <div class="confirmation resumechat hidden">
-                            <h3 class="err">The assigned expert is currently not available to resume your chat.</h3>
-                            <p>Would you like to chat with a different expert? </p>
-                            <button class="primary">Yes</button>
-                            <button class="primary disabled dont">No</button>
+                    <p>Ticket Summary </p>
 
-                        </div>
-                        <div class="confirmation tkt-cancel hidden">
-
-                            <p>Ticket number <a href="#">SR24678</a> <br/> Submitted on behalf of <a href="#"> Jacobs, Sarah </a></p>
-                            <p><span class="indicator">ISSUE:</span><br/>Qui elit ea nostrud sint duis in id quis sed dolore ullamco culpa. Ut in incididunt occaecat pariatur veniam amet veniam et dolor in eiusmod labore est.
-                            </p>
+                    <button class="primary escalate"> Escalate Ticket </button>
+                    <button class="primary disabled resume-call"> Resume Call</button>
+                    <button class="primary disabled resume-chat"> Resume Chat </button>
+                    <button class="primary disabled cancel"> Cancel Ticket</button>
 
 
-                                <h3>Why do you wish to cancel this ticket?</h3>
-                                <textarea placeholder="Reason" rows="3" class="reason"></textarea>
-                                <ul>
-                                    <li><input type="checkbox" id="fixed"> <label for="fixed">Fixed</label></li>
-                                    <li><input type="checkbox" id="norel"> <label for="norel">Not relavant any more</label></li>
-                                </ul>
-                                <button class="primary"> Cancel this ticket </button>
-                                <button class="primary disabled dont"> Don't cancel ticket</button>
-
-
-
-                        </div>
-                        <div class="confirmation tkt-summary hidden">
-
-                            <p>Ticket Summary </p>
-
-                            <button class="primary escalate"> Escalate Ticket </button>
-                            <button class="primary disabled resume-call"> Resume Call</button>
-                            <button class="primary disabled resume-chat"> Resume Chat </button>
-                            <button class="primary disabled cancel"> Cancel Ticket</button>
-
-
-
-                        </div>
-
-
-
-                        <div class="helpdesk-panel">
-                            <div class="whichnum hidden">
-                                <form>
-                                    <h3> Best number to call is:</h3>
-                                    <ul>
-                                        <li>
-                                            <input type="radio" name="callme" id="office" checked> 617.330.8867
-                                            <span class="where">Office</span>
-                                        </li>
-                                        <li>
-                                            <input type="radio" name="callme" id="home"> 901.433.1234
-                                            <span class="where">Home</span>
-                                        </li>
-                                    </ul>
-                                    <input type="text" name="callme" placeholder="Other, enter number" id="other" >
-                                </form>
-                            </div>
-                            <h2 class="title"> Contact Help Desk</h2>
-                            <textarea placeholder="Tell us about your issue" rows="12"></textarea>
-                            <span class="attach"> <a href="#">Attach</a></span>
-                            <p class="contactq">How would you like to be contacted?</p>
-                            <div class="contact-options">
-                                <div class="option call">
-                                    <div class="back hidden">
-                                        <svg id="icon-arrow" viewBox="0 0 24 24" width="100%" height="100%">
-                                            <title>arrow</title>
-                                            <polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "></polygon>
-                                        </svg>
-                                    </div>
-                                    <span class="type">Call</span>
-
-                                </div>
-
-                                <div class="option chat ">
-                                    <span class="type">Chat</span>
-
-                                </div>
-                                <div class="option reqonly ">
-                                    <span>Create ticket </span>
-                                </div>
-                            </div>
-
-                            <div class="behalf">
-                                <span>Ticket raised on behalf of: <a href="#" class="behalfof">Self</a></span>
-                                <input placeholder="Lookup a person" class="person-lookup hidden">
-                            </div>
-                            <button class="primary disabled">Submit</button>
-                        </div>
-
-                    </div>
-
-
-                    <div class="grid">
-                        <div class="col-1-2">
-                            <div class="ticket" :class="cards[1].tickettype">
-                                <div class="status">{{ cards[1].status }}</div>
-                                <h4>{{ cards[1].ticketnumber }}</h4>
-                                <p>{{ cards[1].description }} </p>
-                                <div class="status-tracker">
-                                    <ul>
-                                        <li><img src="img/play-green.svg"></li>
-                                        <li><img src="img/line-green.svg"></li>
-                                        <li><img src="img/user-current.svg"></li>
-                                        <li><img src="img/line.svg"></li>
-                                        <li><img src="img/cog.svg"></li>
-                                        <li><img src="img/line.svg"></li>
-                                        <li><img src="img/flag.svg"></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-1-2">
-                            <div class="ticket" :class="cards[4].tickettype">
-                                <div class="status">{{ cards[4].status }}</div>
-                                <h4>{{ cards[4].ticketnumber }}</h4>
-                                <p>{{ cards[4].description }} </p>
-                                <div class="status-tracker">
-                                    <ul>
-                                        <li><img src="img/play-green.svg"></li>
-                                        <li><img src="img/line-green.svg"></li>
-                                        <li><img src="img/user-green.svg"></li>
-                                        <li><img src="img/line-green.svg"></li>
-                                        <li><img src="img/cog-current.svg"></li>
-                                        <li><img src="img/line.svg"></li>
-                                        <li><img src="img/flag.svg"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
 
 
 
-                </div>
+                <div class="helpdesk-panel">
+                    <div class="whichnum hidden">
+                        <form>
+                            <h3> Best number to call is:</h3>
+                            <ul>
+                                <li>
+                                    <input type="radio" name="callme" id="office" checked> 617.330.8867
+                                    <span class="where">Office</span>
+                                </li>
+                                <li>
+                                    <input type="radio" name="callme" id="home"> 901.433.1234
+                                    <span class="where">Home</span>
+                                </li>
+                            </ul>
+                            <input type="text" name="callme" placeholder="Other, enter number" id="other" >
+                        </form>
+                    </div>
+                    <h2 class="title"> Contact Help Desk</h2>
+                    <textarea placeholder="Tell us about your issue" rows="12"></textarea>
+                    <span class="attach"> <a href="#">Attach</a></span>
+                    <p class="contactq">How would you like to be contacted?</p>
+                    <div class="contact-options">
+                        <div class="option call">
+                            <div class="back hidden">
+                                <svg id="icon-arrow" viewBox="0 0 24 24" width="100%" height="100%">
+                                    <title>arrow</title>
+                                    <polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "></polygon>
+                                </svg>
+                            </div>
+                            <span class="type">Call</span>
 
+                        </div>
+
+                        <div class="option chat ">
+                            <span class="type">Chat</span>
+
+                        </div>
+                        <div class="option reqonly ">
+                            <span>Create ticket </span>
+                        </div>
+                    </div>
+
+                    <div class="behalf">
+                        <span>Ticket raised on behalf of: <a href="#" class="behalfof">Self</a></span>
+                        <input placeholder="Lookup a person" class="person-lookup hidden">
+                    </div>
+                    <button class="primary disabled">Submit</button>
+                </div>
 
             </div>
 
-            
-        </div>
-      
-  
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/TweenMax.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/vue.js"></script>
-        <script src="js/main.js"></script>
 
-        
-    </body>
+            <div class="grid">
+                <div class="col-1-2">
+                    <div class="ticket" :class="cards[1].tickettype">
+                        <div class="status">{{ cards[1].status }}</div>
+                        <h4>{{ cards[1].ticketnumber }}</h4>
+                        <p>{{ cards[1].description }} </p>
+                        <div class="status-tracker">
+                            <ul>
+                                <li><img src="img/play-green.svg"></li>
+                                <li><img src="img/line-green.svg"></li>
+                                <li><img src="img/user-current.svg"></li>
+                                <li><img src="img/line.svg"></li>
+                                <li><img src="img/cog.svg"></li>
+                                <li><img src="img/line.svg"></li>
+                                <li><img src="img/flag.svg"></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-1-2">
+                    <div class="ticket" :class="cards[4].tickettype">
+                        <div class="status">{{ cards[4].status }}</div>
+                        <h4>{{ cards[4].ticketnumber }}</h4>
+                        <p>{{ cards[4].description }} </p>
+                        <div class="status-tracker">
+                            <ul>
+                                <li><img src="img/play-green.svg"></li>
+                                <li><img src="img/line-green.svg"></li>
+                                <li><img src="img/user-green.svg"></li>
+                                <li><img src="img/line-green.svg"></li>
+                                <li><img src="img/cog-current.svg"></li>
+                                <li><img src="img/line.svg"></li>
+                                <li><img src="img/flag.svg"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/TweenMax.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
 </html>
